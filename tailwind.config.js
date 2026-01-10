@@ -8,7 +8,17 @@ module.exports = {
   ],
   presets: [require("nativewind/preset")],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#767A61"
+      },
+      fontFamily: {
+        "home-bold": ["PlusJakartaSans_700Bold"],
+        "home-semibold": ["PlusJakartaSans_600SemiBold"],
+        "home-medium": ["PlusJakartaSans_500Medium"],
+        "home-regular": ["PlusJakartaSans_400Regular"],
+      }
+    },
   },
   plugins: [],
 }
