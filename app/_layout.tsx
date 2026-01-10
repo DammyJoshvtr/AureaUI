@@ -1,14 +1,14 @@
-import { Stack } from "expo-router";
-import "./globals.css";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
-import { 
-  useFonts, 
+import {
   PlusJakartaSans_400Regular,
   PlusJakartaSans_500Medium,
   PlusJakartaSans_600SemiBold,
-  PlusJakartaSans_700Bold 
+  PlusJakartaSans_700Bold,
+  useFonts
 } from '@expo-google-fonts/plus-jakarta-sans';
+import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect } from "react";
+import "./globals.css";
 
 // 1. Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -36,7 +36,7 @@ export default function RootLayout() {
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="home" options={{ title: "Home" }} />
+      <Stack.Screen name="home/homepage" />
     </Stack>
   );
 }
