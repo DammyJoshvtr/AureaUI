@@ -47,7 +47,7 @@ const homepage = () => {
 
             {/* Get Started Button */}
             <TouchableOpacity className="w-[100%] mx-6 h-16 bg-white rounded-full flex justify-center items-center">
-              <Text className="text-center font-semibold text-xl">Get Started</Text>
+              <Text className="text-center font-home-semibold font-semibold text-2xl text-gray-500">Get Started</Text>
             </TouchableOpacity>
           </View>
         </View>
