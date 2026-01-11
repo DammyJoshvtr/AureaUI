@@ -7,6 +7,11 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 
 
 const homepage = () => {
+
+  // const leadStyle = "font-home-bold text-center text-white italic text-[3.5rem] leading-[3.5rem] font-bold mb-9"
+
+  // const subStyle="font-home-regular not-italic font-normal text-white text-[3rem]"
+
   return (
     <View className="flex-1 bg-primary">
       
@@ -37,16 +42,19 @@ const homepage = () => {
             {/* logo */}
             <Image source={icons.logo} className="my-6"/>
 
-            <Text className="font-home-bold text-center text-white italic text-[3.5rem] leading-[3.5rem] font-bold mb-9">Embrace Your Glow,{"\n"}
+            <Text className="leadStyle">Embrace Your Glow,{"\n"}
 
-              <Text className="font-home-regular not-italic font-normal text-white text-[3rem]">One day at a time.</Text>
+              <Text className="subStyle" >One day at a time.</Text>
             </Text>
 
             <Text className="text-white text-center text-2xl font-home-regular">Auréa helps you stay on track with routines</Text>
             <Text className="text-white text-center text-2xl font-home-regular mb-9">that nurture your skin and confidence.</Text>
 
             {/* Get Started Button */}
-            <TouchableOpacity className="w-[100%] mx-6 h-16 bg-white rounded-full flex justify-center items-center">
+            <TouchableOpacity 
+              className="w-[100%] mx-6 h-16 bg-white rounded-full flex justify-center items-center"
+              // onPress={"/signup"}
+              >
               <Text className="text-center font-home-semibold font-semibold text-2xl text-gray-500">Get Started</Text>
             </TouchableOpacity>
           </View>

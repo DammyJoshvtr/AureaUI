@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/*---------------------- Splash Screen---------------------- */
+/*---------------------------------------------------------- */
+.leadStyle {
+  @apply "font-home-bold text-center text-white italic text-[3.5rem] leading-[3.5rem] font-bold mb-9"
+}
+
+.subStyle {
+  @apply "font-home-regular not-italic font-normal text-white text-[3rem]"
+}
+
+/* ------------------------------------------------------------ */
+/* ------------------------------------------------------------ */
