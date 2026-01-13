@@ -4,7 +4,7 @@
     "slug": "Aurea Kit",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo/logo.png",
+    "icon": "./assets/logo/logo.svg",
     "scheme": "client",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -14,16 +14,17 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/logo/logo.png",
-        "backgroundImage": "./assets/logo/logo.png",
-        "monochromeImage": "./assets/logo/logo.png"
+        "foregroundImage": "./assets/logo/logo.svg",
+        "backgroundImage": "./assets/logo/logo.svg",
+        "monochromeImage": "./assets/logo/logo.svg"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.AureaKit"
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/logo/logo.png",
+      "favicon": "./assets/logo/logo.svg",
       "bundler": "metro"
     },
     "plugins": [
@@ -31,7 +32,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/logo/logo.png",
+          "image": "./assets/logo/logo.svg",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
