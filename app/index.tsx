@@ -1,9 +1,14 @@
 import { icons } from "@/constant/icon";
 import { image } from "@/constant/image";
 import { blurEffect } from "@/constant/style";
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient } from "expo-linear-gradient";
 import React from 'react';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Image,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
 
 
 const homepage = () => {
@@ -66,3 +71,14 @@ const homepage = () => {
 }
 
 export default homepage
+
+// import { Text, View } from 'react-native';
+
+// export default function Page() {
+//   return (
+//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'black' }}>
+//       <Text style={{ color: 'white', fontSize: 24 }}>Safe Mode Active</Text>
+//       <Image source={ icons.logo } />
+//     </View>
+//   );
+// }

@@ -4,7 +4,7 @@
     "slug": "Aurea Kit",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo/logo.svg",
+    "icon": "./assets/logo/logo.png",
     "scheme": "client",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -14,9 +14,9 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/logo/logo.svg",
-        "backgroundImage": "./assets/logo/logo.svg",
-        "monochromeImage": "./assets/logo/logo.svg"
+        "foregroundImage": "./assets/logo/logo.png",
+        "backgroundImage": "./assets/logo/logo.png",
+        "monochromeImage": "./assets/logo/logo.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
@@ -24,7 +24,7 @@
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/logo/logo.svg",
+      "favicon": "./assets/logo/logo.png",
       "bundler": "metro"
     },
     "plugins": [
@@ -32,7 +32,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/logo/logo.svg",
+          "image": "./assets/logo/logo.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",

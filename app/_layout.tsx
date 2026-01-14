@@ -22,14 +22,14 @@ export default function RootLayout() {
     PlusJakartaSans_700Bold,
   });
 
-  // 3. Hide the splash screen once fonts are loaded (or if there's an error)
+  // // 3. Hide the splash screen once fonts are loaded (or if there's an error)
   useEffect(() => {
     if (loaded || error) {
       SplashScreen.hideAsync();
     }
   }, [loaded, error]);
 
-  // 4. Return null (render nothing) while waiting for fonts
+  // // 4. Return null (render nothing) while waiting for fonts
   if (!loaded && !error) {
     return null;
   }
@@ -38,5 +38,7 @@ export default function RootLayout() {
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="index" />
     </Stack>
+
+    // <Stack />
   );
 }
