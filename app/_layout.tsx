@@ -36,7 +36,7 @@ export default function RootLayout() {
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="home/homepage" />
+      <Stack.Screen name="index" />
     </Stack>
   );
 }

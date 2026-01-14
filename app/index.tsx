@@ -42,9 +42,9 @@ const homepage = () => {
             {/* logo */}
             <Image source={icons.logo} className="my-6"/>
 
-            <Text className="leadStyle">Embrace Your Glow,{"\n"}
+            <Text className="font-home-bold text-center text-white italic text-[3.5rem] leading-[3.5rem] font-bold mb-9">Embrace Your Glow,{"\n"}
 
-              <Text className="subStyle" >One day at a time.</Text>
+              <Text className="font-home-regular not-italic font-normal text-white text-[3rem]" >One day at a time.</Text>
             </Text>
 
             <Text className="text-white text-center text-2xl font-home-regular">Auréa helps you stay on track with routines</Text>
