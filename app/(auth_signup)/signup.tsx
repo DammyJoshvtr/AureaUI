@@ -1,12 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import RegisterFields from "@/components/registerFields";
+import React from "react";
+import { View } from "react-native";
 
-const signup = () => {
+const Signup = () => {
   return (
-    <View>
-      <Text>signup</Text>
+    <View className="p-10 flex-1 flex-col">
+      <RegisterFields />
     </View>
-  )
-}
+  );
+};
 
-export default signup
+export default Signup;

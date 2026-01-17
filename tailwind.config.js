@@ -10,15 +10,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#767A61"
+        primary: "#767A61",
+        "confirm-button": "#383838",
       },
       fontFamily: {
         "home-bold": ["PlusJakartaSans_700Bold"],
         "home-semibold": ["PlusJakartaSans_600SemiBold"],
         "home-medium": ["PlusJakartaSans_500Medium"],
         "home-regular": ["PlusJakartaSans_400Regular"],
-      }
+      },
     },
   },
   plugins: [],
-}
+};

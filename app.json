@@ -13,7 +13,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#17181A",
         "foregroundImage": "./assets/logo/logo.png",
         "backgroundImage": "./assets/logo/logo.png",
         "monochromeImage": "./assets/logo/logo.png"

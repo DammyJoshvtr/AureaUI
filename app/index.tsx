@@ -2,6 +2,7 @@ import { icons } from "@/constant/icon";
 import { image } from "@/constant/image";
 import { blurEffect } from "@/constant/style";
 import { LinearGradient } from "expo-linear-gradient";
+import { Link } from "expo-router";
 import React from 'react';
 import {
   Image,
@@ -56,12 +57,14 @@ const homepage = () => {
             <Text className="text-white text-center text-2xl font-home-regular mb-9">that nurture your skin and confidence.</Text>
 
             {/* Get Started Button */}
-            <TouchableOpacity 
-              className="w-[100%] mx-6 h-16 bg-white rounded-full flex justify-center items-center"
-              // onPress={"/signup"}
-              >
-              <Text className="text-center font-home-semibold font-semibold text-2xl text-gray-500">Get Started</Text>
-            </TouchableOpacity>
+            <Link href="/Signup" asChild>
+              <TouchableOpacity 
+                className="w-[100%] mx-6 h-16 bg-white rounded-full flex justify-center items-center"
+                // onPress={"/signup"}
+                >
+                <Text className="text-center font-home-semibold font-semibold text-2xl text-gray-500">Get Started</Text>
+              </TouchableOpacity>
+            </Link>
           </View>
         </View>
       </View>
