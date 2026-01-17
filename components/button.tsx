@@ -3,9 +3,19 @@ import { BlurView } from "expo-blur";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const Button = ({ title, showIcon }: { title: string; showIcon: boolean }) => {
+const Button = ({
+  title,
+  showIcon,
+  ...props
+}: {
+  title: string;
+  showIcon: boolean;
+}) => {
   return (
-    <TouchableOpacity className="justify-center items-center bg-confirm-button w-full h-16 rounded-full overflow-hidden">
+    <TouchableOpacity
+      {...props} // add this because Link stopped working for some reason
+      className="justify-center items-center bg-confirm-button w-full h-16 rounded-full overflow-hidden"
+    >
       {/* Ellipse blur */}
       <View>
         <View
