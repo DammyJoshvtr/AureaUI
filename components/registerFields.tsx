@@ -11,11 +11,6 @@ import {
 } from "react-native";
 import CountryPicker from "react-native-country-picker-modal";
 
-interface fields {
-  name: string;
-  placeholder: string;
-}
-
 const RegisterFields = () => {
   const [countryCode, setCountryCode] = useState("NG");
   const [isChecked, setIsChecked] = useState(true);
