@@ -1,3 +1,4 @@
+import AntDesign from "@expo/vector-icons/AntDesign";
 import { BlurView } from "expo-blur";
 import { Checkbox } from "expo-checkbox";
 import { Link } from "expo-router";
@@ -88,7 +89,7 @@ const RegisterFields = () => {
           Do you have an account?{" "}
           <Text className="font-home-semibold">Sign in</Text>
         </Text>
-        <Link href={"/"} asChild>
+        <Link href={"/Signup2"} asChild>
           <TouchableOpacity className="justify-center items-center bg-confirm-button w-full h-16 rounded-full overflow-hidden">
             {/* Ellipse blur */}
             <View>
@@ -104,9 +105,12 @@ const RegisterFields = () => {
               />
             </View>
 
-            <Text className="text-center font-home-semibold font-semibold text-2xl text-white">
-              Register Now
-            </Text>
+            <View className="flex-row gap-1 align-center justify-center">
+              <Text className="text-center font-home-semibold font-semibold text-2xl text-white">
+                Next
+              </Text>
+              <AntDesign name="arrow-right" size={20} color="white" />
+            </View>
           </TouchableOpacity>
         </Link>
       </View>
