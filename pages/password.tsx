@@ -14,7 +14,7 @@ const Password = () => {
 
   return (
     <View className="flex-1 p-6">
-      {" "}
+      {/* {" "} */}
       {/* Wrapped in View for better layout control */}
       <View className="items-center justify-center mb-8">
         <Text className="text-2xl font-home-bold">Create Password</Text>
@@ -90,7 +90,11 @@ const Password = () => {
         </View>
       </View>
       {/* Bottom Action Area */}
-      <View className="flex-1 justify-end items-center mb-4">
+      <View className="flex-1 justify-end items-center mb-4 gap-3">
+        <Text className="text-[16px] font-home-regular">
+          Do you have an account?{" "}
+          <Text className="font-home-semibold">Sign in</Text>
+        </Text>
         <Button title="Create Password" showIcon={true} />
       </View>
     </View>
