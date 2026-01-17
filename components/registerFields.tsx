@@ -1,5 +1,15 @@
-import React, { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { BlurView } from "expo-blur";
+import { Checkbox } from "expo-checkbox";
+import { Link } from "expo-router";
+import { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import CountryPicker from "react-native-country-picker-modal";
 
 interface fields {
   name: string;
@@ -7,7 +17,9 @@ interface fields {
 }
 
 const RegisterFields = () => {
-  const [countryCode, setCountryCode] = useState("+1");
+  const [countryCode, setCountryCode] = useState("NG");
+  const [isChecked, setIsChecked] = useState(true);
+  const [callingCode, setCallingCode] = useState("+234");
 
   return (
     <>
@@ -38,13 +50,22 @@ const RegisterFields = () => {
           Phone Number
         </Text>
         <View className="flex-row items-center justify-between">
+          <View className="flex-row bg-white h-14 w-[27%] items-center justify-center rounded-full">
+            <CountryPicker
+              withFilter
+              withFlag
+              withCallingCode
+              countryCode={countryCode}
+              onSelect={(country) => {
+                setCountryCode(country.cca2);
+                setCallingCode(country.callingCode[0]);
+              }}
+            />
+
+            <Text>{callingCode}</Text>
+          </View>
           <TextInput
-            className="w-[20%] px-4 text-[16px] h-14 rounded-full bg-white"
-            autoCorrect={false}
-            value={countryCode}
-          />
-          <TextInput
-            className="px-4 text-[16px] h-14 w-[75%] rounded-full bg-white p-2 focus:bg-gray-300 focus:outline-none focus:border-[1px]"
+            className="px-4 text-[16px] h-14 w-[70%] rounded-full bg-white p-2 focus:bg-gray-300 focus:outline-none focus:border-[1px]"
             placeholder="Enter your number"
             autoCorrect={false}
             keyboardType="numeric"
@@ -52,21 +73,47 @@ const RegisterFields = () => {
         </View>
       </View>
 
-      {/* Terms and Condition Text */}
-      <View className="mt-6">
-        <Text>
+      {/* Terms and Condition Text && Checkbox */}
+      <View className="mt-6 flex-row items-center gap-3">
+        <Checkbox
+          style={{ margin: 8 }}
+          onValueChange={setIsChecked}
+          color={isChecked ? "#4630EB" : undefined}
+          value={isChecked}
+        />
+        <Text className="text-[17px] font-home-regular">
           I hereby acknoledge and agree to the
           <Text className="font-home-semibold"> terms</Text> and{" "}
           <Text className="font-home-semibold">conditions</Text>
         </Text>
       </View>
 
-      <View className="flex-1 justify-end">
-        <TouchableOpacity className="justify-center items-center bg-confirm-button w-full h-16 rounded-full">
-          <Text className="text-center font-home-semibold font-semibold text-2xl text-white">
-            Register Now
-          </Text>
-        </TouchableOpacity>
+      <View className="flex-1 items-center justify-end gap-3">
+        <Text className="text-[16px] font-home-regular">
+          Do you have an account?{" "}
+          <Text className="font-home-semibold">Sign in</Text>
+        </Text>
+        <Link href={"/"} asChild>
+          <TouchableOpacity className="justify-center items-center bg-confirm-button w-full h-16 rounded-full overflow-hidden">
+            {/* Ellipse blur */}
+            <View>
+              <View
+                className="absolute bg-white/40 w-[250px] h-[250px] rounded-full -bottom-64 -left-10"
+                style={{ filter: "blur(40px)" }}
+              />
+
+              <BlurView
+                intensity={80}
+                tint="light"
+                style={StyleSheet.absoluteFill}
+              />
+            </View>
+
+            <Text className="text-center font-home-semibold font-semibold text-2xl text-white">
+              Register Now
+            </Text>
+          </TouchableOpacity>
+        </Link>
       </View>
     </>
   );
