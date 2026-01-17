@@ -1,16 +1,9 @@
-import AntDesign from "@expo/vector-icons/AntDesign";
-import { BlurView } from "expo-blur";
 import { Checkbox } from "expo-checkbox";
 import { Link } from "expo-router";
 import { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Text, TextInput, View } from "react-native";
 import CountryPicker from "react-native-country-picker-modal";
+import Button from "./button";
 
 const RegisterFields = () => {
   const [countryCode, setCountryCode] = useState("NG");
@@ -90,28 +83,7 @@ const RegisterFields = () => {
           <Text className="font-home-semibold">Sign in</Text>
         </Text>
         <Link href={"/Signup2"} asChild>
-          <TouchableOpacity className="justify-center items-center bg-confirm-button w-full h-16 rounded-full overflow-hidden">
-            {/* Ellipse blur */}
-            <View>
-              <View
-                className="absolute bg-white/40 w-[250px] h-[250px] rounded-full -bottom-64 -left-10"
-                style={{ filter: "blur(40px)" }}
-              />
-
-              <BlurView
-                intensity={80}
-                tint="light"
-                style={StyleSheet.absoluteFill}
-              />
-            </View>
-
-            <View className="flex-row gap-1 align-center justify-center">
-              <Text className="text-center font-home-semibold font-semibold text-2xl text-white">
-                Next
-              </Text>
-              <AntDesign name="arrow-right" size={20} color="white" />
-            </View>
-          </TouchableOpacity>
+          <Button title="Next" showIcon={true} />
         </Link>
       </View>
     </>
