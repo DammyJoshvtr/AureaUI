@@ -9,6 +9,9 @@ const RegisterFields = () => {
   const [countryCode, setCountryCode] = useState("NG");
   const [isChecked, setIsChecked] = useState(true);
   const [callingCode, setCallingCode] = useState("+234");
+  const [fullName, setFullName] = useState("Joshua Damilola");
+  const [email, setEmail] = useState("damilolajoshua2021");
+  const [phoneNumber, setPhoneNumber] = useState("8148176165");
 
   return (
     <>
@@ -19,6 +22,8 @@ const RegisterFields = () => {
           className="px-4 text-[16px] h-14 w-[100%] rounded-full bg-white p-2 focus:bg-gray-300 focus:outline-none focus:border-[1px]"
           placeholder="Enter your name"
           autoCorrect={false}
+          value={fullName}
+          onChangeText={(text) => setFullName(text)}
         />
       </View>
 
@@ -30,6 +35,8 @@ const RegisterFields = () => {
           placeholder="Enter your email"
           autoCorrect={false}
           keyboardType="email-address"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
         />
       </View>
 
@@ -58,6 +65,8 @@ const RegisterFields = () => {
             placeholder="Enter your number"
             autoCorrect={false}
             keyboardType="numeric"
+            value={phoneNumber}
+            onChangeText={(text) => setPhoneNumber(text)}
           />
         </View>
       </View>
@@ -80,7 +89,9 @@ const RegisterFields = () => {
       <View className="flex-1 items-center justify-end gap-3">
         <Text className="text-[16px] font-home-regular">
           Do you have an account?{" "}
-          <Text className="font-home-semibold">Sign in</Text>
+          <Link href={"/Signin"}>
+            <Text className="font-home-semibold">Sign in</Text>
+          </Link>
         </Text>
         <Link href={"/Signup2"} asChild>
           <Button title="Next" showIcon={true} />

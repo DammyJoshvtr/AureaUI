@@ -1,5 +1,6 @@
 import Button from "@/components/button";
 import { icons } from "@/constant/icon";
+import { Link } from "expo-router";
 import React, { useState } from "react";
 import { Image, Text, TextInput, View } from "react-native";
 
@@ -13,7 +14,7 @@ const Password = () => {
   const isLongEnough = password.length >= 8;
 
   return (
-    <View className="flex-1 p-6">
+    <>
       {/* {" "} */}
       {/* Wrapped in View for better layout control */}
       <View className="items-center justify-center mb-8">
@@ -93,11 +94,13 @@ const Password = () => {
       <View className="flex-1 justify-end items-center mb-4 gap-3">
         <Text className="text-[16px] font-home-regular">
           Do you have an account?{" "}
-          <Text className="font-home-semibold">Sign in</Text>
+          <Link href={"/Signin"}>
+            <Text className="font-home-semibold">Sign in</Text>
+          </Link>
         </Text>
         <Button title="Create Password" showIcon={true} />
       </View>
-    </View>
+    </>
   );
 };
 
