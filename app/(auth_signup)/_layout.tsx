@@ -9,7 +9,8 @@ const SignupLayout = () => {
   const getHeading = () => {
     if (pathName.includes("Signup") || pathName.includes("Signup2"))
       return "Register";
-    if (pathName.includes("Signin")) return "Welcome Back";
+    if (pathName.includes("Signin") || pathName.includes("Signin2"))
+      return "Welcome Back";
     return "AureaKit";
   };
 
