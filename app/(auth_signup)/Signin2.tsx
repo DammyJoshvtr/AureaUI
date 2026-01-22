@@ -1,9 +1,11 @@
+import Button from "@/components/button";
+import { Link } from "expo-router";
 import React, { useRef, useState } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
 
 const Signin2 = () => {
   const [code, setCode] = useState("");
-  const codeLength = 4;
+  const codeLength = 5;
 
   // Creating a Ref for the hidden input
   const inputRef = useRef<TextInput>(null);
@@ -16,7 +18,7 @@ const Signin2 = () => {
       </View>
 
       {/* description */}
-      <View>
+      <View className="mb-9">
         <Text
           className="text-gray-500 text-[16px] text-center"
           numberOfLines={2}
@@ -27,8 +29,8 @@ const Signin2 = () => {
       </View>
 
       {/* OTP */}
-      <View>
-        <Text>OTP</Text>
+      <View className="mb-9">
+        <Text className="font-home-semibold text-[16px]">OTP</Text>
         <View className="flex justify-center items-center">
           <Pressable
             onPress={() => inputRef.current?.focus()}
@@ -42,7 +44,9 @@ const Signin2 = () => {
                   className={`w-16 h-16 rounded-full items-center justify-center bg-white border-2 
                     ${code.length === index ? "border-primary" : "border-gray-200"}`}
                 >
-                  <Text>{code[index]}</Text>
+                  <Text className="text-3xl font-home-bold">
+                    {code[index] || ""}
+                  </Text>
                 </View>
               ))}
           </Pressable>
@@ -57,6 +61,18 @@ const Signin2 = () => {
             autoFocus={true}
           />
         </View>
+      </View>
+
+      <Button title="Continue" showIcon={true} />
+
+      {/* Don't have an account? */}
+      <View className="flex-1 items-center justify-end mb-8">
+        <Text className="text-[16px] font-home-regular">
+          Do you have an account?{" "}
+          <Link href={"/Signup"}>
+            <Text className="font-home-semibold">Sign in</Text>
+          </Link>
+        </Text>
       </View>
     </View>
   );
