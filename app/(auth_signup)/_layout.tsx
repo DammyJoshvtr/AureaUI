@@ -1,9 +1,27 @@
 import { BlurView } from "expo-blur";
 import { Slot, usePathname } from "expo-router";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 const SignupLayout = () => {
+  // const [isKeyboardView, setIsKeyboardView] = useState(false);
+
+  // useEffect(() => {
+  //   // Listen For Keyboard popping up
+  //   const showSubscription = Keyboard.addListener("keyboardDidShow", () =>
+  //     setIsKeyboardView(true),
+  //   );
+
+  //   // Listen for keyboard hiding
+  //   const hideSubscription = Keyboard.addListener("keyboardDidHide", () =>
+  //     setIsKeyboardView(false),
+  //   );
+
+  //   return () => {
+  //     showSubscription.remove();
+  //     hideSubscription.remove();
+  //   };
+  // }, []);
   const pathName = usePathname();
 
   const getHeading = () => {
@@ -26,8 +44,8 @@ const SignupLayout = () => {
         </Text>
       </View>
 
-      {/* Dynamic Body - 70% */}
-      <View className="h-[70%] rounded-t-[45px] bg-white/50 w-full overflow-hidden">
+      <View className="h-[70%] rounded-t-[45px] bg-white/50 w-full overflow-hidden absolute bottom-0">
+        {/* <ScrollView contentContainerStyle={{ flex: 1 }}> */}
         {/* First Ellipse for bluring */}
         <View
           className="absolute -top-20 -right-28 w-[400px] h-[500px] rounded-full bg-white opacity-50"
@@ -44,12 +62,15 @@ const SignupLayout = () => {
         <BlurView intensity={80} tint="light" style={StyleSheet.absoluteFill} />
 
         <BlurView />
-        <Slot />
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1 }}
+          showsVerticalScrollIndicator={false}
+        >
+          <Slot />
+        </ScrollView>
       </View>
     </View>
   );
 };
 
 export default SignupLayout;
-
-// bg-white/70
