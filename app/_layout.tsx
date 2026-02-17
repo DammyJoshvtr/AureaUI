@@ -43,6 +43,9 @@ export default function RootLayout() {
       <Stack.Screen
       name='(auth_signup)'
       />
+
+      <Stack.Screen 
+      name="(tabs)" />
     </Stack>
 
     // <Stack />
