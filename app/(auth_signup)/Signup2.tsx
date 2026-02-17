@@ -22,7 +22,7 @@ const Signup2 = () => {
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS ? "padding" : undefined}
+      behavior={Platform.OS === "ios" ? "padding" : undefined}
       className="flex-1"
     >
       <View className="p-10 flex-1 flex-col gap-4">
@@ -95,7 +95,7 @@ const Signup2 = () => {
         </View>
 
         {/* Confirm Password Field */}
-        <View className="gap-2 mb-6">
+        <View className="gap-2">
           <Text className="text-[16px] font-home-semibold">
             Confirm Password
           </Text>
@@ -109,14 +109,16 @@ const Signup2 = () => {
         </View>
 
         {/* Bottom Action Area */}
-        <View className="flex-1 justify-end items-center mb-4 gap-3">
-          <Text className="text-[16px] font-home-regular">
-            Do you have an account?{" "}
-            <Link href={"/Signin"}>
-              <Text className="font-home-semibold">Sign in</Text>
-            </Link>
-          </Text>
-          <Button title="Create Password" showIcon={true} />
+        <View className="flex-1 justify-end">
+          <View className="flex items-center justify-center gap-3">
+            <Text className="text-[16px] font-home-regular">
+              Do you have an account?{" "}
+              <Link href={"/Signin"}>
+                <Text className="font-home-semibold">Sign in</Text>
+              </Link>
+            </Text>
+            <Button title="Create Password" showIcon={true} />
+          </View>
         </View>
 
         {/* <View className="h-56" /> */}
