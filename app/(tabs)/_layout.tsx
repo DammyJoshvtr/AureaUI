@@ -1,12 +1,7 @@
-// import * as NavigationBar from "expo-navigation-bar";
 import { Tabs } from "expo-router";
 import React from "react";
 import { Image, Text, View } from "react-native";
 import { icons } from "../../constant/icon";
-
-// function TabIcon({ focused, icon, name }: any) {
-//   let iconSource;
-//   let label;
 
 function TabIcon({ icon, name, focused }: any) {
   return (
@@ -33,7 +28,6 @@ const Layout = () => {
       screenOptions={{
         tabBarShowLabel: false,
         headerShown: false,
-        // tabBarActiveTintColor: "black", // This sets the color for the active icon
         tabBarItemStyle: {
           width: 100,
           height: 110,
