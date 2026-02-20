@@ -5,5 +5,10 @@ export const icons = {
   google: require("../assets/icons/google.png"),
   xcircle: require("../assets/icons/xcircle.png"),
   slogo: require("../assets/logo/logo.svg"),
-  logo: require("../assets/logo/logo.png")
+  logo: require("../assets/logo/logo.png"),
+  coloredHouse: require("../assets/icons/colored_house.png"),
+  unColoredHouse: require("../assets/icons/uncolored_house.png"),
+  coloredCalender: require("../assets/icons/colored_calendar.png"),
+  unColoredCalender: require("../assets/icons/uncolored_calendar.png"),
+  faceAnalyze: require("../assets/icons/analyze_icon.png"),
 };
