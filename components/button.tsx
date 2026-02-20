@@ -3,7 +3,7 @@ import { BlurView } from "expo-blur";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const Button = ({
+const ContinueButton = ({
   title,
   showIcon,
   ...props
@@ -36,4 +36,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default ContinueButton;
