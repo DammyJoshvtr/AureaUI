@@ -3,7 +3,7 @@ import { Link } from "expo-router";
 import { useState } from "react";
 import { Text, TextInput, View } from "react-native";
 import CountryPicker from "react-native-country-picker-modal";
-import Button from "./button";
+import ContinueButton from "./button";
 
 const RegisterFields = () => {
   const [countryCode, setCountryCode] = useState("NG");
@@ -94,7 +94,7 @@ const RegisterFields = () => {
           </Link>
         </Text>
         <Link href={"/Signup2"} asChild>
-          <Button title="Next" showIcon={true} />
+          <ContinueButton title="Next" showIcon={true} />
         </Link>
       </View>
     </>

@@ -1,4 +1,4 @@
-import Button from "@/components/button";
+import ContinueButton from "@/components/button";
 import { icons } from "@/constant/icon";
 import { Checkbox } from "expo-checkbox";
 import { Link } from "expo-router";
@@ -56,9 +56,9 @@ const Signin = () => {
         </Link>
       </View>
       {/* Signin Button */}
-      <View>
-        <Button title="Sign in" showIcon={false} />
-      </View>
+      <Link href="/home" asChild>
+        <ContinueButton title="Sign in" showIcon={false} />
+      </Link>
 
       <View className="flex-row items-center my-6 px-2">
         {/* Left Line */}

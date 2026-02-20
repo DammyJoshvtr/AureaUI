@@ -1,4 +1,4 @@
-import Button from "@/components/button";
+import ContinueButton from "@/components/button";
 import { icons } from "@/constant/icon";
 import { Link } from "expo-router";
 import React, { useState } from "react";
@@ -117,7 +117,7 @@ const Signup2 = () => {
                 <Text className="font-home-semibold">Sign in</Text>
               </Link>
             </Text>
-            <Button title="Create Password" showIcon={true} />
+            <ContinueButton title="Create Password" showIcon={true} />
           </View>
         </View>
 

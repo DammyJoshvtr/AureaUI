@@ -1,4 +1,4 @@
-import Button from "@/components/button";
+import ContinueButton from "@/components/button";
 import { Link } from "expo-router";
 import React, { useRef, useState } from "react";
 import { Pressable, Text, TextInput, View } from "react-native";
@@ -63,7 +63,7 @@ const Signin2 = () => {
         </View>
       </View>
 
-      <Button title="Continue" showIcon={true} />
+      <ContinueButton title="Continue" showIcon={true} />
 
       {/* Don't have an account? */}
       <View className="flex-1 items-center justify-end mb-8">
