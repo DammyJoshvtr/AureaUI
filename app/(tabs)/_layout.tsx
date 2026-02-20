@@ -12,12 +12,6 @@ const Layout = () => {
       }}
     >
       <Tabs.Screen
-        name="index"
-        options={{
-          title: "index",
-        }}
-      />
-      <Tabs.Screen
         name="home"
         options={{
           title: "home",

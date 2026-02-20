@@ -1,7 +1,13 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { BlurView } from "expo-blur";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  View,
+} from "react-native";
 
 const ContinueButton = ({
   title,
@@ -10,7 +16,7 @@ const ContinueButton = ({
 }: {
   title: string;
   showIcon: boolean;
-}) => {
+} & TouchableOpacityProps) => {
   return (
     <TouchableOpacity
       {...props} // add this because Link stopped working for some reason

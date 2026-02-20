@@ -1,11 +1,12 @@
 import ContinueButton from "@/components/button";
 import { icons } from "@/constant/icon";
 import { Checkbox } from "expo-checkbox";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import React, { useState } from "react";
 import { Image, Text, TextInput, View } from "react-native";
 
 const Signin = () => {
+  const router = useRouter();
   const [password, setPassword] = useState("dami12");
   const [email, setEmail] = useState("damilolajoshua2021@gmail.com");
   const [isChecked, setIsChecked] = useState(false);
@@ -56,9 +57,11 @@ const Signin = () => {
         </Link>
       </View>
       {/* Signin Button */}
-      <Link href="/home" asChild>
-        <ContinueButton title="Sign in" showIcon={false} />
-      </Link>
+      <ContinueButton
+        title="Sign in"
+        showIcon={false}
+        onPress={() => router.replace("/home")}
+      />
 
       <View className="flex-row items-center my-6 px-2">
         {/* Left Line */}
