@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-const tracker = () => {
+const Tracker = () => {
   return (
     <View>
       <Text>tracker</Text>
@@ -9,4 +9,4 @@ const tracker = () => {
   );
 };
 
-export default tracker;
+export default Tracker;

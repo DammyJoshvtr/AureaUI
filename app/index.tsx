@@ -6,7 +6,7 @@ import { Link } from "expo-router";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-const homepage = () => {
+const Homepage = () => {
   // const leadStyle = "font-home-bold text-center text-white italic text-[3.5rem] leading-[3.5rem] font-bold mb-9"
 
   // const subStyle="font-home-regular not-italic font-normal text-white text-[3rem]"
@@ -72,7 +72,7 @@ const homepage = () => {
   );
 };
 
-export default homepage;
+export default Homepage;
 
 // import { Text, View } from 'react-native';
 

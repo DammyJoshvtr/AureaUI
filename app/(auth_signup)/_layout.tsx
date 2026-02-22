@@ -72,7 +72,7 @@ const SignupLayout = () => {
 
         {/* Second Ellipse For Bluring */}
         <View
-          className="absolute -bottom-20 -left-28 w-[400px] h-[500px] rounded-full bg-white opacity-50"
+          className="absolute -bottom-20 -left-28 w-[400px] h-[500px] rounded-full bg-black/20 opacity-50"
           style={{ filter: "blur(40px)" }} // Optional extra softness
         />
 

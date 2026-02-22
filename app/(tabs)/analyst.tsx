@@ -1,12 +1,12 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from "react";
+import { Text, View } from "react-native";
 
-const analyst = () => {
+const Analyst = () => {
   return (
     <View>
       <Text>analyst</Text>
     </View>
-  )
-}
+  );
+};
 
-export default analyst
+export default Analyst;
