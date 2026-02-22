@@ -1,10 +1,14 @@
+import { icons } from "@/constant/icon";
 import { image } from "@/constant/image";
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 
 const Home = () => {
+  // Reusable Tailwind class string to avoid repetition
+  const headerIconStyle = "w-[50px] h-[50px] rounded-full bg-white";
+
   return (
-    <View className="bg-primary" style={styles.container}>
+    <View className="bg-primary flex-1 relative">
       {/* First Blur Ellipse */}
       <Image
         source={image.ellipseBlur}
@@ -18,15 +22,40 @@ const Home = () => {
         className="absolute right-16 top-24"
         resizeMode="contain"
       />
+
+      {/* ----CONTENT----- */}
+      <ScrollView
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{
+          flex: 1,
+          paddingHorizontal: 15,
+        }}
+      >
+        {/* Header Icon */}
+        <View className="mt-[50px] w-full h-[70px] flex-row justify-between items-center">
+          {/* Profile Picture */}
+          <View className={headerIconStyle} />
+
+          {/* Notification */}
+          <View
+            className={`${headerIconStyle} flex justify-center items-center`}
+          >
+            <Image source={icons.notification} resizeMode="contain" />
+          </View>
+        </View>
+
+        <View>
+          <Text className="font-home-regular text-[16px] text-white">
+            Good Morning, Dammy
+          </Text>
+
+          <Text className="leading font-home-semibold text-[24px] text-white">
+            Let's take care of your skin
+          </Text>
+        </View>
+      </ScrollView>
     </View>
   );
 };
 
 export default Home;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: "relative",
-  },
-});
