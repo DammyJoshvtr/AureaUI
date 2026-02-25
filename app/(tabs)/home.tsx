@@ -23,7 +23,7 @@ const RoutineCard = ({
 
   return (
     <View
-      className={`p-3 w-[48%] rounded-lg ${
+      className={`p-3 w-[48%] rounded-xl ${
         isDark ? "bg-gray-900" : "bg-white"
       }`}
     >
