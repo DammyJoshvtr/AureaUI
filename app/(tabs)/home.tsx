@@ -1,9 +1,12 @@
+import WeekCalendar from "@/components/calendars";
 import { icons } from "@/constant/icon";
 import { image } from "@/constant/image";
-import React from "react";
+import React, { useState } from "react";
 import { Image, ScrollView, Text, View } from "react-native";
 
 const Home = () => {
+  const [date, setDate] = useState(new Date());
+
   // Reusable Tailwind class string to avoid repetition
   const headerIconStyle = "w-[50px] h-[50px] rounded-full bg-white";
 
@@ -44,6 +47,7 @@ const Home = () => {
           </View>
         </View>
 
+        {/* Greeting Text */}
         <View>
           <Text className="font-home-regular text-[16px] text-white">
             Good Morning, Dammy
@@ -52,6 +56,10 @@ const Home = () => {
           <Text className="leading font-home-semibold text-[24px] text-white">
             Let's take care of your skin
           </Text>
+        </View>
+
+        <View className="flex-col w-full gap-4 border-t-[1px] border-b-[1px] border-white my-3">
+          <WeekCalendar date={date} onChange={(newDate) => setDate(newDate)} />
         </View>
       </ScrollView>
     </View>
