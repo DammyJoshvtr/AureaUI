@@ -34,11 +34,14 @@ const Layout = () => {
           // borderWidth: 2,
         },
         tabBarStyle: {
-          backgroundColor: "white",
+          // backgroundColor: "white",
           height: 100,
           paddingTop: 30, //adjusts th items in the tab
+          backgroundColor: "white", // For Debugging...
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
+          position: "absolute",
+          borderTopWidth: 0,
         },
       }}
     >

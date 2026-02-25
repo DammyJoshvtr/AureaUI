@@ -160,6 +160,7 @@ const Home = () => {
           flexGrow: 1,
           paddingHorizontal: 15,
           gap: 15,
+          paddingBottom: 100,
         }}
       >
         {/* Header Icon */}
@@ -228,6 +229,12 @@ const Home = () => {
             referenceImage={image.girlSmall}
             title="Face Massage"
             description="A gentle massage boosts circulation and relaxes tension."
+          />
+
+          <RecommendationCard
+            referenceImage={image.girlSmall}
+            title="Fsce skin-care routine"
+            description="A step-by-step guide to perfect skin."
           />
         </View>
       </ScrollView>
