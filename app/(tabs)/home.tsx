@@ -87,11 +87,55 @@ const RoutineCard = ({
   );
 };
 
+const RecommendationCard = ({
+  referenceImage,
+  title,
+  description,
+}: {
+  referenceImage: any;
+  title: string;
+  description: string;
+}) => {
+  return (
+    <View className="h-[143px] bg-white p-4 rounded-xl flex-row items-center gap-3">
+      <View className="w-[30%] h-full">
+        <Image
+          source={referenceImage}
+          className="w-full h-full"
+          resizeMode="contain"
+        />
+      </View>
+
+      <View className="flex-1 gap-2">
+        <Text className="font-home-semibold text-[16px]">{title}</Text>
+
+        <Text className="font-home-medium text-[14px] text-gray-700">
+          {description.length > 60
+            ? description.slice(0, 60) + "..."
+            : description}
+        </Text>
+
+        <View className="flex-row justify-between items-center">
+          <View className="w-[80%] h-10 border-[1px] border-gray-500 rounded-full items-center justify-center">
+            <Text>Read More</Text>
+          </View>
+
+          <View className="w-10 h-10 border-[1px] border-gray-500 rounded-full items-center justify-center">
+            <AntDesign name="plus" size={15} color="black" />
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+};
+
 const Home = () => {
   const [date, setDate] = useState(new Date());
 
   // Reusable Tailwind class string to avoid repetition
   const headerIconStyle = "w-[50px] h-[50px] rounded-full bg-white";
+
+  const cardTitle = "font-home-regular text-[18px] text-white";
 
   return (
     <SafeAreaView className="bg-primary flex-1 relative">
@@ -149,9 +193,7 @@ const Home = () => {
 
         {/* Checklist */}
         <View className="gap-5">
-          <Text className="font-home-regular text-white text-[16px]">
-            Your daily checklist
-          </Text>
+          <Text className={cardTitle}>Your daily checklist</Text>
 
           {/* Square container */}
           <View className="justify-between flex-row w-full">
@@ -170,6 +212,23 @@ const Home = () => {
               theme="dark"
             />
           </View>
+        </View>
+
+        {/* Recommendation */}
+        <View className="gap-5">
+          <Text className={cardTitle}>Our recommendation</Text>
+
+          <RecommendationCard
+            referenceImage={image.girlSmall}
+            title="Morning Cream"
+            description="Finish strong with your cream. it seals in all the goodness."
+          />
+
+          <RecommendationCard
+            referenceImage={image.girlSmall}
+            title="Face Massage"
+            description="A gentle massage boosts circulation and relaxes tension."
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
