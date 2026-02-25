@@ -12,4 +12,6 @@ export const icons = {
   unColoredCalender: require("../assets/icons/uncolored_calendar.png"),
   faceAnalyze: require("../assets/icons/analyze_icon.png"),
   notification: require("../assets/icons/notification.png"),
+  sun: require("../assets/icons/sun.png"),
+  moon: require("../assets/icons/night.png"),
 };
