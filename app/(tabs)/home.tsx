@@ -3,132 +3,12 @@ import { icons } from "@/constant/icon";
 import { image } from "@/constant/image";
 import { AntDesign } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, Pressable, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import RecommendationCard from "@/components/recommendationCard";
+import RoutineCard from "@/components/routineCard";
+import { Link } from "expo-router";
 
-
-const RoutineCard = ({
-  title,
-  step,
-  total,
-  icon,
-  theme = "light",
-}: {
-  title: string;
-  step: number;
-  total: number;
-  icon: any;
-  theme?: "light" | "dark";
-}) => {
-  const isDark = theme === "dark";
-
-  return (
-    <View
-      className={`p-3 w-[48%] rounded-xl ${
-        isDark ? "bg-gray-900" : "bg-white"
-      }`}
-    >
-      <View className="flex-row items-center justify-between w-full">
-        <View className="w-[36px] h-[36px] rounded-full items-center justify-center border-[1px] border-gray-500">
-          <Image source={icon} resizeMode="contain" />
-        </View>
-        <View
-          className={`w-[36px] h-[36px] rounded-full items-center justify-center ${
-            isDark ? "bg-white" : "bg-gray-900"
-          }`}
-        >
-          <AntDesign
-            name="arrow-right"
-            size={24}
-            color={isDark ? "black" : "white"}
-            style={{ transform: [{ rotate: "-45deg" }] }}
-          />
-        </View>
-      </View>
-
-      <View>
-        <Text
-          className={`text-[24px] font-home-semibold mt-10 ${
-            isDark ? "text-white" : "text-black"
-          }`}
-        >
-          {title}
-        </Text>
-
-        <View className="flex-row items-center gap-2 w-full mt-4">
-          <View
-            className={`rounded-full px-3 py-1 ${
-              isDark ? "bg-[#CABEA6]" : "bg-primary"
-            }`}
-          >
-            <Text
-              className={`text-[10px] font-home-semibold ${
-                isDark ? "text-black" : "text-white"
-              }`}
-            >
-              Step {step}/{total}
-            </Text>
-          </View>
-
-          <View
-            className={`flex-1 h-1.5 rounded-full overflow-hidden ${
-              isDark ? "bg-white" : "bg-gray-200"
-            }`}
-          >
-            <View
-              className={`h-full rounded-full ${
-                isDark ? "bg-[#CABEA6]" : "bg-primary"
-              }`}
-              style={{ width: `${(step / total) * 100}%` }}
-            />
-          </View>
-        </View>
-      </View>
-    </View>
-  );
-};
-
-const RecommendationCard = ({
-  referenceImage,
-  title,
-  description,
-}: {
-  referenceImage: any;
-  title: string;
-  description: string;
-}) => {
-  return (
-    <View className="h-[143px] bg-white p-4 rounded-xl flex-row items-center gap-3">
-      <View className="w-[30%] h-full">
-        <Image
-          source={referenceImage}
-          className="w-full h-full"
-          resizeMode="contain"
-        />
-      </View>
-
-      <View className="flex-1 gap-2">
-        <Text className="font-home-semibold text-[16px]">{title}</Text>
-
-        <Text className="font-home-medium text-[14px] text-gray-700">
-          {description.length > 60
-            ? description.slice(0, 60) + "..."
-            : description}
-        </Text>
-
-        <View className="flex-row justify-between items-center">
-          <View className="w-[80%] h-10 border-[1px] border-gray-500 rounded-full items-center justify-center">
-            <Text>Read More</Text>
-          </View>
-
-          <View className="w-10 h-10 border-[1px] border-gray-500 rounded-full items-center justify-center">
-            <AntDesign name="plus" size={15} color="black" />
-          </View>
-        </View>
-      </View>
-    </View>
-  );
-};
 
 const Home = () => {
   const [date, setDate] = useState(new Date());
@@ -220,19 +100,27 @@ const Home = () => {
         <View className="gap-5">
           <Text className={cardTitle}>Our recommendation</Text>
 
+        {/* <Link href={`/recommendation/[id]`} asChild>
+          <Pressable>
+            
+          </Pressable>
+        </Link> */}
           <RecommendationCard
+            id="1"
             referenceImage={image.girlSmall}
             title="Morning Cream"
             description="Finish strong with your cream. it seals in all the goodness."
           />
 
           <RecommendationCard
+            id="2"
             referenceImage={image.girlSmall}
             title="Face Massage"
             description="A gentle massage boosts circulation and relaxes tension."
           />
 
           <RecommendationCard
+            id="3"
             referenceImage={image.girlSmall}
             title="Fsce skin-care routine"
             description="A step-by-step guide to perfect skin."

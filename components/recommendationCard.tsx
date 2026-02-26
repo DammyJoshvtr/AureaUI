@@ -1,13 +1,15 @@
-import React from "react"
-import { image } from "@/constant/image";
 import { AntDesign } from "@expo/vector-icons";
-import { View, Text, Image} from "react-native";
+import { Link } from "expo-router";
+import React from "react";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const RecommendationCard = ({
+  id,
   referenceImage,
   title,
   description,
 }: {
+  id: string;
   referenceImage: any;
   title: string;
   description: string;
@@ -32,9 +34,11 @@ const RecommendationCard = ({
         </Text>
 
         <View className="flex-row justify-between items-center">
-          <View className="w-[80%] h-10 border-[1px] border-gray-500 rounded-full items-center justify-center">
-            <Text>Read More</Text>
-          </View>
+          <Link href={`/recommendation/${id}`} asChild>
+            <TouchableOpacity className="w-[80%] h-10 border-[1px] border-gray-500 rounded-full items-center justify-center">
+              <Text>Read More</Text>
+            </TouchableOpacity>
+          </Link>
 
           <View className="w-10 h-10 border-[1px] border-gray-500 rounded-full items-center justify-center">
             <AntDesign name="plus" size={15} color="black" />
