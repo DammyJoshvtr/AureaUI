@@ -1,14 +1,12 @@
 import WeekCalendar from "@/components/calendars";
+import RecommendationCard from "@/components/recommendationCard";
+import RoutineCard from "@/components/routineCard";
 import { icons } from "@/constant/icon";
 import { image } from "@/constant/image";
 import { AntDesign } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { Image, Pressable, ScrollView, Text, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import RecommendationCard from "@/components/recommendationCard";
-import RoutineCard from "@/components/routineCard";
-import { Link } from "expo-router";
-
 
 const Home = () => {
   const [date, setDate] = useState(new Date());
@@ -47,7 +45,11 @@ const Home = () => {
         {/* Header Icon */}
         <View className="w-full h-[70px] flex-row justify-between items-center">
           {/* Profile Picture */}
-          <View className={headerIconStyle} />
+          <View
+            className={`${headerIconStyle} flex justify-center items-center`}
+          >
+            <AntDesign name="user" size={24} color="gray" />
+          </View>
 
           {/* Notification */}
           <View
@@ -100,7 +102,7 @@ const Home = () => {
         <View className="gap-5">
           <Text className={cardTitle}>Our recommendation</Text>
 
-        {/* <Link href={`/recommendation/[id]`} asChild>
+          {/* <Link href={`/recommendation/[id]`} asChild>
           <Pressable>
             
           </Pressable>
