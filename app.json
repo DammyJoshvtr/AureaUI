@@ -47,6 +47,16 @@
         {
           "calendarPermission": "The app needs to access your calendar."
         }
+      ],
+
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(AUREAUIKIT) to access your camera",
+          "microphonePermission": "Allow $(AUREAUIKIT) to access your microphone",
+          "recordAudioAndroid": true,
+          "barcodeScannerEnabled": true
+        }
       ]
     ],
     "experiments": {

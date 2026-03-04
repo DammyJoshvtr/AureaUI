@@ -63,7 +63,7 @@ const RecomendationDetails = () => {
       {/* Heading */}
       <View className="flex-row items-center m-4">
         <TouchableOpacity
-          className="bg-white w-12 h-12 rounded-full flex items-center justify-center"
+          className="bg-white w-12 h-12 rounded-full flex items-center justify-center absolute"
           onPress={() => router.back()}
         >
           <AntDesign name="arrow-left" size={24} color="gray" />
