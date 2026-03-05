@@ -30,10 +30,6 @@ const Analyst = () => {
     );
   }
 
-  function toggleCameraFacing() {
-    setFacing((current) => (current === "front" ? "back" : "front"));
-  }
-
   return (
     <SafeAreaView className="flex-1 bg-primary">
       {/* First Blur Ellipse */}
@@ -70,13 +66,13 @@ const Analyst = () => {
         </View>
       </View>
 
-      <View className="flex-1 items-center mt-6">
-        <View className="w-96 h-[45rem] bg-white rounded-full overflow-hidden">
+      <View className="flex-1 items-center mt-6 gap-y-14">
+        <View className="w-80 h-[30rem] bg-white rounded-full overflow-hidden border-4 border-white">
           <CameraView facing={facing} style={{ flex: 1 }} />
         </View>
 
-        <TouchableOpacity onPress={toggleCameraFacing}>
-          <Text className="text-white">Toggle View</Text>
+        <TouchableOpacity>
+          <Image source={image.startButton} />
         </TouchableOpacity>
       </View>
     </SafeAreaView>

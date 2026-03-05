@@ -3,4 +3,5 @@ export const image = {
   ellipseBlur: require("@/assets/images/blur.png"),
   girlSmall: require("@/assets/images/girl_small.png"),
   girlBig: require("@/assets/images/girl_big.png"),
+  startButton: require("@/assets/images/start_button.png"),
 };

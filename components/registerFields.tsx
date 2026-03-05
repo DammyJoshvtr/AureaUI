@@ -86,7 +86,7 @@ const RegisterFields = () => {
         </Text>
       </View>
 
-      <View className="flex-1 items-center justify-end gap-3">
+      <View className="flex-1 items-center justify-end gap-5">
         <Text className="text-[16px] font-home-regular">
           Do you have an account?{" "}
           <Link href={"/Signin"}>
