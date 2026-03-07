@@ -1,14 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import BasicBottomSheetExample from "@/components/buttomSheet";
+import React from "react";
+import { Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const tracker = () => {
+const Tracker = () => {
   return (
-    <View>
-      <Text>tracker</Text>
-    </View>
-  )
-}
+    <SafeAreaView className="flex-1 bg-white">
+      <Text>Tracker</Text>
+      <BasicBottomSheetExample />
+    </SafeAreaView>
+  );
+};
 
-export default tracker
-
-const styles = StyleSheet.create({})
+export default Tracker;
