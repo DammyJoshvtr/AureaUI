@@ -156,6 +156,7 @@ const Analyst = () => {
 
 export default Analyst;
 
+// Styles
 const styles = StyleSheet.create({
   buttonContainer: {
     alignItems: "center",
