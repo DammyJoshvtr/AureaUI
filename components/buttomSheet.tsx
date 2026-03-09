@@ -1,5 +1,15 @@
-import React from "react";
-import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { useEffect, useRef } from "react";
+import {
+  Animated,
+  Dimensions,
+  Modal,
+  PanResponder,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 import ContinueButton from "./button";
 
 interface Props {
@@ -31,6 +41,42 @@ const ui = {
 };
 
 export default function BottomSheet({ isActive, onClose }: Props) {
+  const panY = useRef(new Animated.Value(0)).current;
+  const screenHeight = Dimensions.get("window").height;
+
+  // Reset position when the modal opens
+  useEffect(() => {
+    if (isActive) {
+      panY.setValue(0);
+    }
+  }, [isActive]);
+
+  const panResponder = useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderMove: (_, gestureState) => {
+        // Only allow dragging down (positive values)
+        if (gestureState.dy > 0) {
+          panY.setValue(gestureState.dy);
+        }
+      },
+      onPanResponderRelease: (_, gestureState) => {
+        // If dragged down more than 100px, close the sheet
+        if (gestureState.dy > 100) {
+          onClose?.();
+        } else {
+          // Otherwise, spring back to the open position
+          Animated.spring(panY, {
+            toValue: 0,
+            useNativeDriver: true,
+            bounciness: 4,
+          }).start();
+        }
+      },
+    }),
+  ).current;
+
   return (
     <View style={styles.container}>
       <Modal
@@ -45,52 +91,68 @@ export default function BottomSheet({ isActive, onClose }: Props) {
           onPress={onClose}
         >
           {/* Stop propagation so clicking the sheet doesn't close it */}
-          <TouchableOpacity activeOpacity={1} className={ui.sheet}>
-            <View className={ui.handle} />
+          <TouchableWithoutFeedback>
+            <Animated.View
+              style={[{ transform: [{ translateY: panY }] }]}
+              className={ui.sheet}
+            >
+              {/* Draggable Area (Handle + Header) */}
+              <View
+                className="w-full items-center"
+                {...panResponder.panHandlers}
+              >
+                <View className={ui.handle} />
 
-            <View className={ui.header}>
-              <Text className={ui.headerScore}>87</Text>
-              <Text className={ui.headerTitle}>Overall Skin Health</Text>
-              <View className={ui.progressBar}>
-                <View className={ui.progressBarFill} style={{ width: "87%" }} />
-              </View>
-            </View>
-
-            <View className={ui.contentContainer}>
-              <View className={ui.statsRow}>
-                {/* First Square */}
-                <View className={ui.statCard}>
-                  <View className={ui.statValueContainer}>
-                    <Text className={ui.statValue}>83</Text>
-                  </View>
-                  <View className={`${ui.statLabelContainer} bg-[#767A61]`}>
-                    <Text className={ui.statLabelText}>Skin Health</Text>
-                  </View>
-                </View>
-
-                {/* Second Square */}
-                <View className={ui.statCard}>
-                  <View className={ui.statValueContainer}>
-                    <Text className={ui.statValue}>27</Text>
-                  </View>
-                  <View className={`${ui.statLabelContainer} bg-[#CABEA6]`}>
-                    <Text className={ui.statLabelText}>Skin Age</Text>
+                <View className={ui.header}>
+                  <Text className={ui.headerScore}>87</Text>
+                  <Text className={ui.headerTitle}>Overall Skin Health</Text>
+                  <View className={ui.progressBar}>
+                    <View
+                      className={ui.progressBarFill}
+                      style={{ width: "87%" }}
+                    />
                   </View>
                 </View>
               </View>
 
-              <View className={ui.descriptionBox}>
-                <Text className={ui.descriptionTitle}>Overall Health Skin</Text>
-                <Text className={ui.descriptionText}>
-                  Your skin is in excellent condition, well hydrated, smooth in
-                  texture, and showing minimal signs of stress. Keep up the
-                  consistent care for long-term radiance.
-                </Text>
-              </View>
+              <View className={ui.contentContainer}>
+                <View className={ui.statsRow}>
+                  {/* First Square */}
+                  <View className={ui.statCard}>
+                    <View className={ui.statValueContainer}>
+                      <Text className={ui.statValue}>83</Text>
+                    </View>
+                    <View className={`${ui.statLabelContainer} bg-[#767A61]`}>
+                      <Text className={ui.statLabelText}>Skin Health</Text>
+                    </View>
+                  </View>
 
-              <ContinueButton title="Analyst Again" showIcon={false} />
-            </View>
-          </TouchableOpacity>
+                  {/* Second Square */}
+                  <View className={ui.statCard}>
+                    <View className={ui.statValueContainer}>
+                      <Text className={ui.statValue}>27</Text>
+                    </View>
+                    <View className={`${ui.statLabelContainer} bg-[#CABEA6]`}>
+                      <Text className={ui.statLabelText}>Skin Age</Text>
+                    </View>
+                  </View>
+                </View>
+
+                <View className={ui.descriptionBox}>
+                  <Text className={ui.descriptionTitle}>
+                    Overall Health Skin
+                  </Text>
+                  <Text className={ui.descriptionText}>
+                    Your skin is in excellent condition, well hydrated, smooth
+                    in texture, and showing minimal signs of stress. Keep up the
+                    consistent care for long-term radiance.
+                  </Text>
+                </View>
+
+                <ContinueButton title="Analyst Again" showIcon={false} />
+              </View>
+            </Animated.View>
+          </TouchableWithoutFeedback>
         </TouchableOpacity>
       </Modal>
     </View>
