@@ -7,7 +7,7 @@ const Tracker = () => {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <Text>Tracker</Text>
-      <BasicBottomSheetExample />
+      <BasicBottomSheetExample isActive={false} />
     </SafeAreaView>
   );
 };

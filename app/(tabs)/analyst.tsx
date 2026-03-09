@@ -1,3 +1,4 @@
+import BottomSheet from "@/components/buttomSheet";
 import { image } from "@/constant/image";
 import { AntDesign } from "@expo/vector-icons";
 import { CameraType, CameraView, useCameraPermissions } from "expo-camera";
@@ -19,6 +20,7 @@ const Analyst = () => {
   const [facing, setFacing] = useState<CameraType>("front");
   const [count, setCount] = useState<number>(0);
   const [analyze, setAnalyze] = useState<string>("");
+  const [isActive, setIsActive] = useState<boolean>(false);
   const [permission, requestPermission] = useCameraPermissions();
   const cameraRef = useRef<CameraView>(null);
   const anim = useRef(new Animated.Value(0)).current;
@@ -76,7 +78,7 @@ const Analyst = () => {
       const analyzeInterval = setInterval(() => {
         index = (index + 1) % analyzeForm.length;
         setAnalyze(analyzeForm[index]);
-      }, 500);
+      }, 100);
 
       const interval = setInterval(() => {
         setCount((prev) => {
@@ -84,6 +86,7 @@ const Analyst = () => {
             clearInterval(interval);
             clearInterval(analyzeInterval);
             setAnalyze("Completed");
+            setIsActive(true);
 
             return 100;
           }
@@ -150,6 +153,10 @@ const Analyst = () => {
           )}
         </TouchableOpacity>
       </View>
+
+      {isActive && (
+        <BottomSheet isActive={isActive} onClose={() => setIsActive(false)} />
+      )}
     </SafeAreaView>
   );
 };
