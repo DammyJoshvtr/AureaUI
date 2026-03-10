@@ -1,4 +1,5 @@
 import WeekCalendar from "@/components/calendars";
+import EllipseBlur from "@/components/EllipseBlur";
 import RecommendationCard from "@/components/recommendationCard";
 import RoutineCard from "@/components/routineCard";
 import { icons } from "@/constant/icon";
@@ -18,19 +19,9 @@ const Home = () => {
 
   return (
     <SafeAreaView className="bg-primary flex-1 relative">
-      {/* First Blur Ellipse */}
-      <Image
-        source={image.ellipseBlur}
-        className="absolute left-20 bottom-48"
-        resizeMode="contain"
-      />
-
-      {/* Left Blur Ellipse */}
-      <Image
-        source={image.ellipseBlur}
-        className="absolute right-16 top-24"
-        resizeMode="contain"
-      />
+      
+      {/* EllipseBlur */}
+      <EllipseBlur />
 
       {/* ----CONTENT----- */}
       <ScrollView
