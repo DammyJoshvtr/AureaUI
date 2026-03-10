@@ -10,26 +10,33 @@ import {
 } from "react-native";
 
 type Props = {
-  date: Date;
-  onChange: (value: Date) => void;
+  date: Date; // The currently selected date passed from the parent component
+  onChange: (value: Date) => void; // Callback function to update the date in the parent
 };
 
 const WeekCalendar: React.FC<Props> = ({ date, onChange }) => {
+  // State to hold the array of 7 days for the current week
   const [week, setWeek] = useState<WeekDay[]>([]);
 
+  // Effect hook: Runs whenever the 'date' prop changes.
+  // It recalculates the days of the week based on the new date.
   useEffect(() => {
     setWeek(getWeekDays(date));
   }, [date]);
 
   return (
     <View style={styles.container}>
+      {/* Iterate through the calculated week days to render them */}
       {week.map((weekDay) => {
+        // Check if this specific day is the one currently selected
         const isSelected = isSameDay(weekDay.date, date);
 
+        // Define base styles for the container and text
         const containerStyles: ViewStyle[] = [styles.dayContainer];
         const textStyles: TextStyle[] = [styles.dayNumber];
         const labelStyles: TextStyle[] = [styles.dayLabel];
 
+        // If this day is selected, apply the 'selected' styles (e.g., white background, black text)
         if (isSelected) {
           containerStyles.push(styles.selectedContainer);
           textStyles.push(styles.selectedText);
@@ -38,13 +45,15 @@ const WeekCalendar: React.FC<Props> = ({ date, onChange }) => {
 
         return (
           <TouchableOpacity
-            key={weekDay.date.toISOString()}
+            key={weekDay.date.toISOString()} // Unique key for React list rendering
             style={containerStyles}
-            onPress={() => onChange(weekDay.date)}
+            onPress={() => onChange(weekDay.date)} // Update parent state on click
           >
+            {/* Day Name (e.g., Mon, Tue) */}
             <Text style={labelStyles} className="font-home-semibold">
               {weekDay.formatted}
             </Text>
+            {/* Day Number (e.g., 12, 13) */}
             <Text style={textStyles} className="font-home-semibold">
               {weekDay.day}
             </Text>
@@ -93,22 +102,25 @@ const styles = StyleSheet.create({
 });
 
 type WeekDay = {
-  formatted: string;
-  date: Date;
-  day: number;
+  formatted: string; // Day name (e.g., "Mon")
+  date: Date; // Full Date object
+  day: number; // Day of the month (e.g., 12)
 };
 
+// Helper function to generate the 7 days of the week containing the given date
 export const getWeekDays = (date: Date): WeekDay[] => {
+  // Find the start of the week (Monday) for the given date
   const start = startOfWeek(date, { weekStartsOn: 1 });
 
   const final: WeekDay[] = [];
 
+  // Loop 7 times to generate each day of the week
   for (let i = 0; i < 7; i++) {
-    const newDate = addDays(start, i);
+    const newDate = addDays(start, i); // Add 'i' days to the start date
     final.push({
-      formatted: format(newDate, "EEE"),
+      formatted: format(newDate, "EEE"), // Format as 3-letter day name (e.g., "Mon")
       date: newDate,
-      day: getDate(newDate),
+      day: getDate(newDate), // Get the day number
     });
   }
 

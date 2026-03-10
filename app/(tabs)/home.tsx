@@ -1,5 +1,5 @@
 import WeekCalendar from "@/components/calendars";
-import EllipseBlur from "@/components/EllipseBlur";
+import EllipseBlur from "@/components/ellipseBlur";
 import RecommendationCard from "@/components/recommendationCard";
 import RoutineCard from "@/components/routineCard";
 import { icons } from "@/constant/icon";
@@ -19,7 +19,6 @@ const Home = () => {
 
   return (
     <SafeAreaView className="bg-primary flex-1 relative">
-      
       {/* EllipseBlur */}
       <EllipseBlur />
 

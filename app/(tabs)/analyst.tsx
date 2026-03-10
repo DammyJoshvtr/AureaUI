@@ -1,5 +1,5 @@
 import BottomSheet from "@/components/buttomSheet";
-import EllipseBlur from "@/components/EllipseBlur";
+import EllipseBlur from "@/components/ellipseBlur";
 import { image } from "@/constant/image";
 import { AntDesign } from "@expo/vector-icons";
 import { CameraType, CameraView, useCameraPermissions } from "expo-camera";
@@ -99,7 +99,6 @@ const Analyst = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-primary">
-      
       {/* Ellipse Blur */}
       <EllipseBlur />
 
