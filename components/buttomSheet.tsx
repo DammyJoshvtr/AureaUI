@@ -38,13 +38,16 @@ const ui = {
   descriptionBox: "bg-white rounded-xl p-4 gap-1",
   descriptionTitle: "font-home-bold text-[16px]",
   descriptionText: "text-gray-500 font-home-regular leading-5",
+  actualDescriptionTitle: "Overall Health Skin",
+  actualDescriptionText:
+    "Your skin is in excellent condition, well hydrated, smooth in texture, and showing minimal signs of stress. Keep up the consistent care for long-term radiance.",
 };
 
 export default function BottomSheet({ isActive, onClose }: Props) {
   const panY = useRef(new Animated.Value(0)).current;
   const screenHeight = Dimensions.get("window").height;
 
-  // Reset position when the modal opens
+  // Reset <posit></posit>ion when the modal opens
   useEffect(() => {
     if (isActive) {
       panY.setValue(0);
@@ -140,12 +143,10 @@ export default function BottomSheet({ isActive, onClose }: Props) {
 
                 <View className={ui.descriptionBox}>
                   <Text className={ui.descriptionTitle}>
-                    Overall Health Skin
+                    {ui.actualDescriptionTitle}
                   </Text>
                   <Text className={ui.descriptionText}>
-                    Your skin is in excellent condition, well hydrated, smooth
-                    in texture, and showing minimal signs of stress. Keep up the
-                    consistent care for long-term radiance.
+                    {ui.actualDescriptionText}
                   </Text>
                 </View>
 
