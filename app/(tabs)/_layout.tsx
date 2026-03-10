@@ -1,11 +1,25 @@
 import { Tabs } from "expo-router";
-import React from "react";
-import { Image, Text, View } from "react-native";
+import React, { useEffect, useRef } from "react";
+import { Animated, Image, Text } from "react-native";
 import { icons } from "../../constant/icon";
 
 function TabIcon({ icon, name, focused }: any) {
+  const scaleAnim = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    // Animate to a larger scale if focused, otherwise back to normal
+    Animated.spring(scaleAnim, {
+      toValue: focused ? 1.1 : 1,
+      friction: 3,
+      useNativeDriver: true,
+    }).start();
+  }, [focused, scaleAnim]);
+
   return (
-    <View className="items-center justify-center w-16 gap-1">
+    <Animated.View
+      style={[{ transform: [{ scale: scaleAnim }] }]}
+      className="items-center justify-center w-16 gap-1"
+    >
       <Image
         source={icon}
         resizeMode="contain"
@@ -18,7 +32,7 @@ function TabIcon({ icon, name, focused }: any) {
       >
         {name}
       </Text>
-    </View>
+    </Animated.View>
   );
 }
 
@@ -42,6 +56,14 @@ const Layout = () => {
           borderTopRightRadius: 20,
           position: "absolute",
           borderTopWidth: 0,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.1,
+          shadowRadius: 4,
+          elevation: 5,
         },
       }}
     >
